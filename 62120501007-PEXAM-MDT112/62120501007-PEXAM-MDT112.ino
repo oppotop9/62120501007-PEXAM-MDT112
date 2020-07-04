@@ -39,9 +39,33 @@ void loop(){
     int speedtime = Push*51; //255=fullspeed , 51=20% speedmotor
      if(lastState > currentState)
     {
+        if (Push<=5) {
         int speed = speedtime*-1;
         motor.setSpeed(speed);
         Push++;
+        }
+        else if (Push>5) {
+            if (Push==6) {
+                motor.setSpeed(-204);
+                Push++;
+            }
+            else if (Push==7) {
+                motor.setSpeed(-153);
+                Push++;
+            }
+            else if (Push==8) {
+                motor.setSpeed(-102);
+                Push++;
+            }
+            else if (Push==9) {
+                motor.setSpeed(-51);
+                Push++;
+            }
+            else if (Push==10) {
+                motor.setSpeed(0);
+                Push=1;
+            }
+        }
     }
     else if(lastState < currentState)
     {
