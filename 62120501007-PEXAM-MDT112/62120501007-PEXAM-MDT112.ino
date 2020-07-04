@@ -2,10 +2,12 @@
 LiquidCrystal_I2C lcd(0x27, 16, 2); //lcd
 #include "CytronMotorDriver.h"
 CytronMD motor(PWM_PWM, 5, 3);   //motor
+bool lastState = true;
+int Push = 1;
 
 void setup(){
 tone(8,800,400);
-
+/* 
 Serial.begin(9600);
 Serial.println("Hello MDT");
 
@@ -28,8 +30,24 @@ lcd.clear();
 
 delay(200);
 tone(8,800,500);
+*/
+pinMode(2,INPUT_PULLUP);
 }
 
 void loop(){
+     bool currentState = digitalRead(2);
+    int speedtime = Push*51; //255=fullspeed , 51=20% speedmotor
+     if(lastState > currentState)
+    {
+        int speed = speedtime*-1;
+        motor.setSpeed(speed);
+        Push++;
+    }
+    else if(lastState < currentState)
+    {
+        
+    }
 
+    lastState = currentState;
+    delay(50);
 }
