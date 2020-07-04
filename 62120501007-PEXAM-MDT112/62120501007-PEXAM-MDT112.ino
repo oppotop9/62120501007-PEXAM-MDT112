@@ -7,7 +7,7 @@ int Push = 1;
 
 void setup(){
 tone(8,800,400);
-/* 
+
 Serial.begin(9600);
 Serial.println("Hello MDT");
 
@@ -30,7 +30,7 @@ lcd.clear();
 
 delay(200);
 tone(8,800,500);
-*/
+
 pinMode(2,INPUT_PULLUP);
 }
 
