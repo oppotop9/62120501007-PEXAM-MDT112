@@ -9,6 +9,10 @@ motor.setSpeed(255);
 Serial.println("Turn CCW");
 delay(2000);
 motor.setSpeed(0);
+motor.setSpeed(-255);
+Serial.println("Turn CW");
+delay(3000);
+motor.setSpeed(0);
 }
 
 void loop(){
