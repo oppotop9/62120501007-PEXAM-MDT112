@@ -25,6 +25,9 @@ lcd.setCursor(3, 0);
 lcd.print("Hello MDT");
 delay(1000);
 lcd.clear();
+
+delay(200);
+tone(8,800,500);
 }
 
 void loop(){
